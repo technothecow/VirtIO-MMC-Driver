@@ -44,3 +44,7 @@
 ## Если скачали папку с релизом
 
 Заходим в папку с релизом и пишем следующую команду: `./qemu-system-x86_64 -M q35 -m 256 -kernel ./vmlinuz -initrd ./initrd -append "console=ttyS0,115200 nokaslr" -serial stdio -display none -drive file=./mmc.img,if=none,id=my_mmc -device virtio-mmc-pci,id=mmc0`
+
+# Документация пользователя
+
+Для использования драйвера необходимо скомпилировать ядро (версии v6.6) и эмулятор с представленными в папках QEMU и Linux изменениями, после чего добавить следующий аргумент при запуске эмулятора: `-drive file=./mmc.img,if=none,id=my_mmc -device virtio-mmc-pci,id=mmc0`, где `./mmc.img` - путь до эмулируемого образа карточки.
